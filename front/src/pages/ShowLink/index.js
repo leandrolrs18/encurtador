@@ -9,8 +9,9 @@ import './style.css';
 export default function ShowLink({match}) {
     console.log("show")
     const [rank, setRank] = useState([])
+    const [link, setLink] = useState([])
     
-    let { link } = useParams();
+    //let { link } = useParams();
 
     async function results(){
         await api.get(`/show/${match.params.id}`, {'method': 'GET'})
@@ -23,23 +24,37 @@ export default function ShowLink({match}) {
         });
     }
 
+    async function add_url(){
+        await api.post(`/add_url/${match.params.id}`, {link})
+            .then(res => {
+                console.log(res);
+                results();
+                return true
+            })
+            .catch(err => {
+                console.log(err);
+             });
+    }
+
     useEffect(() => {
         results()
        
-    }, [])
+    }, [link])
     
     return(
         <main>
             <div className="side">
                 <div className="card">
                     <h2>Encurte um link:</h2>
-                    <h2 id="link">
-                        <a href={`/${link}`}>
-                            {`petit.com/${link}`}
-                        </a>
-                    </h2>
+                    <div className="url-field" style = {{justifyContent : 'center', marginLeft: '45px'}}>
+                        <input
+                            id="url-input"
+                            placeholder="http://"
+                            onChange={(el) => setLink(el.target.value)}
+                        />
+                    </div>
                     <br/>
-                    <button id="short-btn" type="submit" >
+                    <button id="short-btn" type="submit"  onClick={() => add_url()} >
                         Encurtar
                     </button>
                 </div>
@@ -57,9 +72,9 @@ export default function ShowLink({match}) {
                                 return (
                                     <tr>
                                         <td>{it+1})</td>
-                                        <td>{(elem[0])}</td>
-                                        <td><a href={'http://localhost:8880/' + elem[2]}>petit.com/{elem[2]}</a></td>
-                                        <td>{elem[1]}</td>
+                                        <td>{(elem[1])}</td>
+                                        <td><a href={'http://localhost:3000/' + elem[2]}>{elem[2]}</a></td>
+                                        <td>{elem[4]}</td>
                                     </tr>
                                 )
                             })}
