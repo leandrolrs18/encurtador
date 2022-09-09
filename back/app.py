@@ -46,7 +46,7 @@ def index(idUser):
         hashid = hashids.encode(url_id)
         short_url = 'http://127.0.0.1:3000/' + hashid
         print(short_url)
-        val = (short_url, idUser)
+        val = (short_url, url_id)
 
         return run_update_query(atualize_urls, val, "LINKS")
 
