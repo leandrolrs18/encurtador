@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import './style.css';
 import api from '../../services/api';
 
-import logo from '../../assets/img/SVG/Animacao.svg';
+import logo from '../../assets/img/2x/baixados.png';
 
 /*
  * Home component that returns the homepage of PetitLink
@@ -70,6 +70,7 @@ export default function Login() {
                         <input
                             id="url-input"
                             placeholder="senha"
+                            type="password"
                             onChange={(el) => setPassword(el.target.value)}
                         />
                     </div>
