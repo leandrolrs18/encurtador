@@ -70,7 +70,6 @@ export default function Login() {
                         <input
                             id="url-input"
                             placeholder="senha"
-                            type="password"
                             onChange={(el) => setPassword(el.target.value)}
                         />
                     </div>

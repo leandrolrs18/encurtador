@@ -1,12 +1,12 @@
 import React from 'react';
-import Logo from '../../assets/img/2x/Logotipo@2x.png';
+import logo from '../../assets/img/2x/baixados.png';
 
 export default function NotFound() {
     return(
         <div className="card">
-            <img src={Logo}></img>
+            <img src={logo}></img>
             <h2>Essa página não foi encontrada. Tente novamente...</h2>
-            <a href="http://localhost:8880/">Ir para o PetitLink</a>
+            <a href="http://localhost:3000/">Ir para o Encurtador</a>
         </div>
     )
 }

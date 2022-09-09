@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import podium from '../../assets/img/2x/podium.png';
-import chevronLeft from '../../assets/img/SVG/chevron-left-solid.svg';
 import api from '../../services/api';
 import './style.css';
 
@@ -73,7 +72,7 @@ export default function ShowLink({match}) {
                                     <tr>
                                         <td>{it+1})</td>
                                         <td>{(elem[1])}</td>
-                                        <td><a href={'http://localhost:3000/' + elem[2]}>{elem[2]}</a></td>
+                                        <td><a href={ elem[1]}>{elem[2]}</a></td>
                                         <td>{elem[4]}</td>
                                     </tr>
                                 )
